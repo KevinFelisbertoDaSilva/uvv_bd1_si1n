@@ -87,6 +87,9 @@ CREATE TABLE produtos (
                 CONSTRAINT produtos_id PRIMARY KEY (produto_id)
                 -- TORNAR A COLUNA produtos_id UMA PK DA TABELA produtos
 );
+
+-- CRIAÇÃO DA TABELA produtos
+
 COMMENT ON TABLE produtos IS 'tabela de criação de produtos';
 COMMENT ON COLUMN produtos.produto_id IS 'coluna de id do produto';
 COMMENT ON COLUMN produtos.nome IS 'coluna de nome do produto';
@@ -98,6 +101,7 @@ COMMENT ON COLUMN produtos.imagem_arquivo IS 'coluna de arquivo da imagem do pro
 COMMENT ON COLUMN produtos.imagem_charset IS 'coluna de charset da imagem do produto';
 COMMENT ON COLUMN produtos.imagem_ultima_atualizacao IS 'coluna de data da ultima atualização da imagem do produto';
 
+-- COMENTÁRIOS DAS COLUNAS DA TABELA produtos
 
 CREATE TABLE clientes (
                 cliente_id NUMERIC(38) NOT NULL,
@@ -109,6 +113,9 @@ CREATE TABLE clientes (
                 CONSTRAINT clientes_id PRIMARY KEY (cliente_id)
                 -- TORNAR A COLUNA clientes_id UMA PK DA TABELA clientes
 );
+
+-- CRIAÇÃO DA TABELA clientes
+
 COMMENT ON TABLE clientes IS 'tabela de criação dos clientes';
 COMMENT ON COLUMN clientes.cliente_id IS 'coluna de id do cliente';
 COMMENT ON COLUMN clientes.email IS 'coluna de email do cliente';
@@ -117,6 +124,7 @@ COMMENT ON COLUMN clientes.telefone1 IS 'coluna de número de telefone do client
 COMMENT ON COLUMN clientes.telefone2 IS 'coluna de segundo número de telefone do cliente';
 COMMENT ON COLUMN clientes.telefone3 IS 'coluna de terceiro número de telefone do cliente';
 
+-- COMENTÁRIOS DAS COLUNAS DA TABELA clientes
 
 CREATE TABLE lojas (
                 loja_id NUMERIC(38) NOT NULL,
@@ -133,6 +141,9 @@ CREATE TABLE lojas (
                 CONSTRAINT loja_id PRIMARY KEY (loja_id)
                 -- TORNAR A COLUNA loja_id UMA PK DA TABELA lojas
 );
+
+-- CRIAÇÃO DA TABELA lojas
+
 COMMENT ON TABLE lojas IS 'tabela de criação das lojas';
 COMMENT ON COLUMN lojas.loja_id IS 'coluna de id da loja';
 COMMENT ON COLUMN lojas.nome IS 'coluna de nome da loja';
@@ -146,6 +157,7 @@ COMMENT ON COLUMN lojas.logo_arquivo IS 'coluna de arquivo da logo da loja';
 COMMENT ON COLUMN lojas.logo_charset IS 'coluna de charset da logo da loja';
 COMMENT ON COLUMN lojas.logo_ultima_atualizacao IS 'coluna de data da ultima atualização da logo da loja';
 
+-- COMENTÁRIOS DAS COLUNAS DA TABELA lojas
 
 CREATE TABLE pedidos (
                 pedido_id NUMERIC(38) NOT NULL,
@@ -156,6 +168,9 @@ CREATE TABLE pedidos (
                 CONSTRAINT pedido_id PRIMARY KEY (pedido_id)
                 -- TORNAR A COLUNA pedido_id UMA PK DA TABELA pedidos
 );
+
+-- CRIAÇÃO DA TABELA pedidos
+
 COMMENT ON TABLE pedidos IS 'tabela de criação de pedidos';
 COMMENT ON COLUMN pedidos.pedido_id IS 'coluna de id do pedido';
 COMMENT ON COLUMN pedidos.data_hora IS 'coluna da data e hora em que o pedido foi feito';
@@ -163,6 +178,7 @@ COMMENT ON COLUMN pedidos.cliente_id IS 'coluna de id do cliente';
 COMMENT ON COLUMN pedidos.status IS 'coluna de status do pedido';
 COMMENT ON COLUMN pedidos.loja_id IS 'coluna de id da loja em que foi feito o pedido';
 
+-- COMENTÁRIOS DA TABELA pedidos
 
 CREATE TABLE envios (
                 envio_id NUMERIC(38) NOT NULL,
@@ -173,6 +189,9 @@ CREATE TABLE envios (
                 CONSTRAINT envio_id PRIMARY KEY (envio_id)
                 -- TORNAR A COLUNA envio_id UMA PK DA TABELA envios
 );
+
+-- CRIAÇÃO DA TABELA envios
+
 COMMENT ON TABLE envios IS 'tabela de criação de envios';
 COMMENT ON COLUMN envios.envio_id IS 'coluna de id do envio';
 COMMENT ON COLUMN envios.loja_id IS 'coluna de id da loja que executa o envio';
@@ -180,6 +199,7 @@ COMMENT ON COLUMN envios.cliente_id IS 'coluna de id do cliente que vai receber 
 COMMENT ON COLUMN envios.endereco_entrega IS 'coluna de endereço de entrega do envio';
 COMMENT ON COLUMN envios.status IS 'coluna de status do envio';
 
+-- COMENTÁRIOS DAS COLUNAS DA TABELA envios
 
 CREATE TABLE pedidos_itens (
                 pedido_id NUMERIC(38) NOT NULL,
@@ -191,6 +211,9 @@ CREATE TABLE pedidos_itens (
                 CONSTRAINT pedido_id_produto_id PRIMARY KEY (pedido_id, produto_id)
                 -- TORNAR AS COLUNAS pedido_id E produto_id PKs DA TABELA pedidos_itens
 );
+
+-- CRIAÇÃO DA TABELA pedidos_itens
+
 COMMENT ON TABLE pedidos_itens IS 'tabela de criação de itens e pedidos';
 COMMENT ON COLUMN pedidos_itens.pedido_id IS 'coluna de id do pedido';
 COMMENT ON COLUMN pedidos_itens.produto_id IS 'coluna de id do produto';
@@ -199,6 +222,7 @@ COMMENT ON COLUMN pedidos_itens.preco_unitario IS 'coluna de preço unitário do
 COMMENT ON COLUMN pedidos_itens.quantidade IS 'coluna de quantidade';
 COMMENT ON COLUMN pedidos_itens.envio_id IS 'coluna de id do envio';
 
+-- COMENTÁRIOS DAS COLUNAS DA TABELA pedidos_itens
 
 CREATE TABLE estoques (
                 estoque_id NUMERIC(38) NOT NULL,
@@ -208,12 +232,16 @@ CREATE TABLE estoques (
                 CONSTRAINT estoque_id PRIMARY KEY (estoque_id)
                 -- TORNAR A COLUNA estoque_id UMA PK DA TABELA estoques
 );
+
+-- CRIAÇÃO DA TABELA estoques
+
 COMMENT ON TABLE estoques IS 'tabela de criação de estoques';
 COMMENT ON COLUMN estoques.estoque_id IS 'coluna de id do estoque';
 COMMENT ON COLUMN estoques.loja_id IS 'coluna de id da loja da qual tem ou usa o estoque';
 COMMENT ON COLUMN estoques.produto_id IS 'coluna de id do produto';
 COMMENT ON COLUMN estoques.quantidade IS 'coluna de quantidade de produtos no estoque';
 
+-- COMENTÁRIOS DAS COLUNAS DA TABELA estoques
 
 ALTER TABLE estoques ADD CONSTRAINT produtos_estoques_fk
 FOREIGN KEY (produto_id)
